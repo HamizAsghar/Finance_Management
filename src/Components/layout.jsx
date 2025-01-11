@@ -33,7 +33,8 @@
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Sidebar from './Sidebar'  // Assuming Sidebar is the component for the finance management sidebar
-import { Footer } from '@/Components/Footer'
+import { Footer } from '@/app/footer/page'
+
 
 const Layout = ({ children }) => {
     const Pathname = usePathname()
@@ -53,7 +54,7 @@ const Layout = ({ children }) => {
                 <div>
 
                     <div>{children}</div>
-                    <Footer />
+                    <Footer/>
                 </div>
             )}
         </div>
