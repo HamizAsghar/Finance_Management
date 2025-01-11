@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+/* Scrollbar Styling */
+body::-webkit-scrollbar {
+  width: 14px; /* Slightly wider for a bold look */
+}
+
+body::-webkit-scrollbar-track {
+  background: #FCE7F3; /* Soft pastel background for contrast */
+  border-radius: 10px;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.1); /* Subtle inner shadow for depth */
+}
+
+body::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #F59E0B, #EA580C, #D97706); /* Vibrant amber gradient */
+  border-radius: 10px;
+  border: 3px solid #FCE7F3; /* Matches the track background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Soft outer shadow for a floating effect */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #EA580C, #D97706, #F59E0B); /* Gradient reverses and brightens on hover */
+  border: 3px solid black; /* Brighter amber border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* More pronounced shadow on hover */
+  cursor: pointer; /* Cursor changes to pointer on hover */
+}
+
+/* Scrollbar Corner (for overflow) */
+body::-webkit-scrollbar-corner {
+  background: #FCE7F3; /* Matches track background */
+}
+
+
+
+
+
+
+
+
