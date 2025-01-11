@@ -33,7 +33,7 @@
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Sidebar from './Sidebar'  // Assuming Sidebar is the component for the finance management sidebar
-import { Footer } from './Footer'
+import { Footer } from '@/Components/Footer'
 
 const Layout = ({ children }) => {
     const Pathname = usePathname()
