@@ -1,6 +1,6 @@
 'use client'
 
-import { useSession, signOut } from 'next-auth/react'
+import { useSession, signOut} from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import { LineChart, Line, AreaChart, Area, ResponsiveContainer } from 'recharts'
@@ -21,14 +21,14 @@ export default function Admin() {
   const chartData = Array.from({ length: 7 }, (_, i) => ({
     value: Math.random() * 100 + 50
   }))
-
+ 
   useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.replace('/')
-    } else if (status === 'authenticated') {
-      fetchData()
-    }
-  }, [status, router])
+if(!session){
+ router.push("/login")
+}else{
+  router.push("/admin")
+}
+  }, [session])
 
   const handleLogout = async () => {
     try {
@@ -100,11 +100,11 @@ export default function Admin() {
     }
   }
 
-  if (loading) {
-    return (
-      <LoadingAnimation/>
-    )
-  }
+  // if (loading) {
+  //   return (
+  //     <LoadingAnimation/>
+  //   )
+  // }
 
   const waveAnimation = {
     animate: {

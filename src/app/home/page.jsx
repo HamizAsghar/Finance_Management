@@ -150,7 +150,7 @@ export default function HomePage() {
                             Home
                         </Link>
                         <Link
-                            href="/login"
+                            href="/admin"
                             className="text-2xl md:text-3xl font-serif text-white transition-all duration-300 hover:text-gray-300"
                             onClick={() => setIsMenuOpen(false)}
                         >
