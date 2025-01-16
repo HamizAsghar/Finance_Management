@@ -55,6 +55,7 @@
   }
 } */ 
 
+/* Refined animations with scoped styles */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -112,15 +113,7 @@
   }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background: linear-gradient(120deg, #000000 75%, #f59e0b 25%, #000000);
-  background-size: 200% 200%;
-  animation: gradientMove 8s ease infinite;
-}
-
+/* Loader container */
 .loader-container {
   position: relative;
   display: flex;
@@ -128,9 +121,13 @@ body {
   justify-content: center;
   height: 100vh;
   overflow: hidden;
+  background: linear-gradient(120deg, #000000 75%, #f59e0b 25%, #000000);
+  background-size: 200% 200%;
+  animation: gradientMove 8s ease infinite;
 }
 
-.loader-text {
+/* Loader text styles */
+.loader-container .loader-text {
   position: relative;
   font-size: 4rem;
   font-weight: bold;
@@ -139,11 +136,12 @@ body {
   animation: fadeIn 1s ease-in-out;
 }
 
-.loader-text span {
+.loader-container .loader-text span {
   animation: pulseGlow 2s infinite;
 }
 
-.particle {
+/* Particle styles */
+.loader-container .particle {
   position: absolute;
   border-radius: 50%;
   background: rgba(245, 158, 11, 0.7);
