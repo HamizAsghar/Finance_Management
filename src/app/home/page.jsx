@@ -966,13 +966,6 @@ export default function HomePage() {
                             Dashboard
                         </Link>
                         <Link
-                            href="/investments"
-                            className="text-2xl md:text-3xl font-serif text-white transition-all duration-300 hover:text-gray-300"
-                            onClick={() => setIsMenuOpen(false)}
-                        >
-                            Investments
-                        </Link>
-                        <Link
                             href="/about"
                             className="text-2xl md:text-3xl font-serif text-white transition-all duration-300 hover:text-gray-300"
                             onClick={() => setIsMenuOpen(false)}
