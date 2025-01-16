@@ -103,7 +103,7 @@ export default function HomePage() {
                     className="text-white p-2 z-50"
                     aria-label="Toggle menu"
                 >
-                    <Menu/>
+                    <Menu className=' h-12 w-10'/>
                 </button>
             </header>
 
