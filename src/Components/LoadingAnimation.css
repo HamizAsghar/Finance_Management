@@ -90,3 +90,30 @@
   animation: particleFloat 3s infinite ease-in-out;
   pointer-events: none;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .loader-container .loader-text {
+    font-size: 3rem;
+    /* Adjust font size for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .loader-container .loader-text {
+    font-size: 2.5rem;
+    /* Adjust font size for small tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-container .loader-text {
+    font-size: 2rem;
+    /* Adjust font size for mobile devices */
+  }
+
+  .loader-container .particle {
+    width: 3px;
+    height: 3px;
+  }
+}

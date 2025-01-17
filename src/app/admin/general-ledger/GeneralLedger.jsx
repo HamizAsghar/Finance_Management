@@ -249,8 +249,7 @@ export default function GeneralLedger() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-gray-900 dark:to-gray-800">
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-8">
-                {/* Header */}
-                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
+                {/* <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
                     <div>
                         <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
                             General Ledger
@@ -276,7 +275,35 @@ export default function GeneralLedger() {
                             Export PDF
                         </button>
                     </div>
+                </div> */}
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6 bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-xl">
+                    <div>
+                        <h1 className="text-3xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
+                            General Ledger
+                        </h1>
+                        <p className="text-gray-600 dark:text-gray-400 mt-2">
+                            Complete financial records and transactions
+                        </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
+                        <button
+                            onClick={syncLedger}
+                            disabled={loading}
+                            className="px-4 py-2 w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-indigo-500/25 disabled:opacity-50 text-center"
+                        >
+                            <RefreshCcw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+                            Sync Ledger
+                        </button>
+                        <button
+                            onClick={exportToPDF}
+                            className="px-4 py-2 w-full sm:w-auto bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-colors flex items-center justify-center gap-2 shadow-lg hover:shadow-indigo-500/25 text-center"
+                        >
+                            <FileText className="w-4 h-4" />
+                            Export PDF
+                        </button>
+                    </div>
                 </div>
+
 
                 {/* Stats Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -343,49 +370,51 @@ export default function GeneralLedger() {
                     </div>
                 </div>
 
-                {/* Filters Section */}
                 <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {/* Date Range Section */}
+
                         <div className="flex flex-col">
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Date Range
                             </label>
-                            <div className="flex gap-4">
+                            <div className="flex flex-col gap-4 sm:flex-row">
                                 <input
                                     type="date"
                                     value={dateRange.startDate}
                                     onChange={(e) => setDateRange((prev) => ({ ...prev, startDate: e.target.value }))}
-                                    className="flex-1 px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                                    className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
                                 />
                                 <input
                                     type="date"
                                     value={dateRange.endDate}
                                     onChange={(e) => setDateRange((prev) => ({ ...prev, endDate: e.target.value }))}
-                                    className="flex-1 px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
+                                    className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
                                 />
                             </div>
                         </div>
 
-                        {/* Transaction Type Section */}
                         <div className="flex flex-col">
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Transaction Type
                             </label>
-                            <select
-                                value={filterType}
-                                onChange={(e) => setFilterType(e.target.value)}
-                                className=" w-full ml-4 px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white"
-                            >
-                                <option value="">All Types</option>
-                                <option value="INCOME">Income</option>
-                                <option value="EXPENSE">Expense</option>
-                                <option value="SAVINGS">Savings</option>
-                                <option value="BUDGET">Budget</option>
-                            </select>
+                            <div className="relative">
+                                <select
+                                    value={filterType}
+                                    onChange={(e) => setFilterType(e.target.value)}
+                                    className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:bg-gray-700 dark:text-white appearance-none"
+                                >
+                                    <option value="">All Types</option>
+                                    <option value="INCOME">Income</option>
+                                    <option value="EXPENSE">Expense</option>
+                                    <option value="SAVINGS">Savings</option>
+                                    <option value="BUDGET">Budget</option>
+                                </select>
+                                <div className="pointer-events-none absolute inset-y-0 right-3 flex items-center text-gray-400">
+                                    ▼
+                                </div>
+                            </div>
                         </div>
 
-                        {/* Search Section */}
                         <div className="flex flex-col">
                             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                                 Search
@@ -403,6 +432,7 @@ export default function GeneralLedger() {
                         </div>
                     </div>
                 </div>
+
 
                 {/* Ledger Entries */}
                 <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-lg overflow-hidden">
