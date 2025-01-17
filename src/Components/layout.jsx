@@ -32,8 +32,8 @@
 "use client"
 import { usePathname } from 'next/navigation'
 import React from 'react'
-import Sidebar from './Sidebar'  
 import { Footer } from '../app/footer/page'
+import Sidebar from '@/app/sideBar/page'
 
 
 const Layout = ({ children }) => {
@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
             {Pathname.startsWith("/admin") ? (
                 <div className="flex h-screen">
                 <div className='h-screen'>
-                    <Sidebar /> {/* Sidebar for finance management */}
+                   <Sidebar/>
                 </div>
                     <div className="flex-1 overflow-auto">
                         {children}
