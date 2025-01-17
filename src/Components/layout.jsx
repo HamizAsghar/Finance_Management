@@ -1,33 +1,3 @@
-// "use client"
-// import { usePathname } from 'next/navigation'
-// import React from 'react'
-// import Sidebar from './SideBar'
-// import Navigation from './Navigation'
-// import { Footer } from './Footer'
-
-// usePathname
-// const Layout = ({ children }) => {
-//     const Pathname = usePathname()
-//     return (
-//         <div>
-//             {Pathname.startsWith("/admin") ?
-//                 (<div>
-//                     <div className='flex h-screen'>
-//                         <Sidebar/>
-//                         {children}
-//                     </div>
-//                 </div>) : (
-//                     <div>
-
-//                         {children}
-//                         <Footer/>
-//                     </div>
-//                 )}
-//         </div>
-//     )
-// }
-
-// export default Layout
 
 "use client"
 import { usePathname } from 'next/navigation'
