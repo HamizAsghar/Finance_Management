@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 import { connectDb } from "@/helper/db"
-import WebAdmin from "@/models/WebAdmin"
+import WebAdmin from "@/models/"
 
 export async function POST(request) {
     try {
