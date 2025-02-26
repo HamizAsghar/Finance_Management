@@ -10,9 +10,9 @@ export default function Account() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.9 }}
-            className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8"
+            className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8 bg-white"
         >
-            <h1 className="text-center text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1 className="text-center text-3xl font-bold tracking-tight text-amber-500 sm:text-4xl">
                 Finance Management Features
             </h1>
 
